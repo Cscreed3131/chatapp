@@ -11,6 +11,7 @@ class NewMessage extends StatefulWidget {
 
 class _NewMessageState extends State<NewMessage> {
   final _messageController = TextEditingController();
+
   @override
   void dispose() {
     _messageController.dispose();
@@ -46,12 +47,13 @@ class _NewMessageState extends State<NewMessage> {
       padding: const EdgeInsets.only(left: 15, right: 1, bottom: 14),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: TextField(
+              controller: _messageController,
               textCapitalization: TextCapitalization.sentences,
               autocorrect: true,
               enableSuggestions: true,
-              decoration: InputDecoration(labelText: 'Send a message...'),
+              decoration: const InputDecoration(labelText: 'Send a message...'),
             ),
           ),
           IconButton(
